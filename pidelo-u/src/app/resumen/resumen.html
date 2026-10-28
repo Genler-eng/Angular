@@ -1,0 +1,23 @@
+<div style="border: 2px dashed #ccc; padding: 15px; margin-top: 20px; border-radius: 6px;">
+  <h3>🧾 Resumen del Pedido</h3>
+  
+  @if (carrito.cantidad() === 0) {
+    <p><em>El carrito está vacío. ¡Elige algo del menú!</em></p>
+  } @else {
+    <!-- Lista detallada de lo que hay en el carrito -->
+    <ul>
+      @for (item of carrito.lista(); track $index) {
+        <li>
+          {{ item.nombre }} - ${{ item.precio }} 
+          <button (click)="carrito.remover($index)" style="color: red; cursor: pointer;">❌ Quitar</button>
+        </li>
+      }
+    </ul>
+    
+    <hr>
+    <p>Productos en el carrito: <strong>{{ carrito.cantidad() }}</strong></p>
+    <p>Total acumulado: <strong>${{ carrito.total() }}</strong></p>
+
+    <button (click)="carrito.vaciar()">Vaciar Todo el Carrito</button>
+  }
+</div>

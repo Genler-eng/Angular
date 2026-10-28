@@ -1,0 +1,16 @@
+<div style="background: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <h3>➕ Agregar Nuevo Producto al Menú</h3>
+  <form (ngSubmit)="guardar()">
+    <div style="margin-bottom: 10px;">
+      <label>Nombre: </label>
+      <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ej: Hamburguesa" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <label>Precio: </label>
+      <input type="number" [(ngModel)]="precio" name="precio" placeholder="Ej: 8000" required>
+    </div>
+    <button type="submit" style="background-color: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
+      Guardar en Menú
+    </button>
+  </form>
+</div>
