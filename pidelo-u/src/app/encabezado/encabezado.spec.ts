@@ -1,21 +1,18 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { Encabezado } from './encabezado';
 
 describe('Encabezado', () => {
-  let component: Encabezado;
-  let fixture: ComponentFixture<Encabezado>;
-
   beforeEach(async () => {
+    localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [Encabezado],
+      providers: [provideRouter([])], // le damos un router vacío a la prueba
     }).compileComponents();
-
-    fixture = TestBed.createComponent(Encabezado);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(Encabezado);
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

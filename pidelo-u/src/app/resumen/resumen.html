@@ -6,10 +6,7 @@
   } @else {
     <ul>
       @for (item of carrito.lista(); track $index) {
-        <li>
-          {{ item.nombre }} - ${{ item.precio }} 
-          <button (click)="carrito.remover($index)" style="color: red; cursor: pointer;">❌ Quitar</button>
-        </li>
+        <app-item-pedido [producto]="item" (quitar)="carrito.remover($index)" />
       }
     </ul>
     

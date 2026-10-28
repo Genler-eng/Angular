@@ -3,5 +3,6 @@
   <nav style="display: flex; gap: 15px;">
     <a routerLink="/" style="color: white; text-decoration: none; font-weight: bold; cursor: pointer;">🏠 Menú Principal</a>
     <a routerLink="/admin" style="color: white; text-decoration: none; font-weight: bold; cursor: pointer;">⚙️ Administrar Menú</a>
+    <span style="font-weight: bold;">🛒 Carrito: {{ carrito.cantidad() }}</span>
   </nav>
 </header>

@@ -1,9 +1,7 @@
-import { Injectable, computed, signal, effect } from '@angular/core';
+import { Service, computed, signal, effect } from '@angular/core';
 import { Producto } from '../modelos/producto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class Carrito {
   private static readonly STORAGE_KEY = 'pidelo_u_carrito';
 
