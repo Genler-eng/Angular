@@ -1,16 +1,17 @@
-<div style="background: white; padding: 20px; border-radius: 8px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-  <h3>➕ Agregar Nuevo Producto al Menú</h3>
-  <form (ngSubmit)="guardar()">
-    <div style="margin-bottom: 10px;">
-      <label>Nombre: </label>
-      <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ej: Hamburguesa" required>
+<div style="max-width: 500px; margin: 30px auto; padding: 25px; border: 1px solid #ddd; border-radius: 8px; background: #fdfdfd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+  <h2 style="margin-top: 0; color: #2c3e50;">⚙️ Administrar Menú: Agregar Producto</h2>
+  
+  <form (submit)="$event.preventDefault(); guardar()">
+    <div style="margin-bottom: 15px;">
+      <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre del producto:</label>
+      <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ej: Hamburguesa especial" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
     </div>
-    <div style="margin-bottom: 10px;">
-      <label>Precio: </label>
-      <input type="number" [(ngModel)]="precio" name="precio" placeholder="Ej: 8000" required>
+
+    <div style="margin-bottom: 20px;">
+      <label style="display: block; margin-bottom: 5px; font-weight: bold;">Precio ($):</label>
+      <input type="number" [(ngModel)]="precio" name="precio" placeholder="0" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
     </div>
-    <button type="submit" style="background-color: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer;">
-      Guardar en Menú
-    </button>
+
+    <button type="button" (click)="guardar()" style="background-color: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">💾 Guardar Producto en el Catálogo</button>
   </form>
 </div>

@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { Carrito } from '../servicios/carrito';
+import { RouterLink } from '@angular/router';
+import { Carrito } from '../servicios/carrito'; // 1. Importar el servicio Carrito
 
 @Component({
   selector: 'app-encabezado',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './encabezado.html',
   styleUrl: './encabezado.css'
 })
 export class Encabezado {
-  // Inyectamos el mismo servicio Carrito para escuchar su estado global
+  // 2. Inyectar el carrito para que esté disponible en el encabezado
   protected readonly carrito = inject(Carrito);
 }

@@ -1,10 +1,7 @@
+<!-- El encabezado se mantiene visible en todas las páginas -->
 <app-encabezado />
 
-<hr style="margin: 20px 0;">
+<hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
 
-<app-menu />
-
-<app-resumen />
-
-<!-- Formulario para crear alimentos -->
-<app-agregar-producto />
+<!-- Aquí se cargarán las vistas de forma dinámica según la ruta -->
+<router-outlet />

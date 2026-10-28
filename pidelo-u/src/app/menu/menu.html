@@ -1,6 +1,10 @@
 <h2>Menú de hoy</h2>
+
+<!-- Barra de búsqueda -->
+<input type="text" [(ngModel)]="filtro" placeholder="🔍 Buscar producto..." style="width: 100%; padding: 8px; margin-bottom: 12px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
+
 <ul>
-  @for (p of productos; track p.id) {
+  @for (p of productosFiltrados(); track p.id) {
     <li>
       {{ p.nombre }} - ${{ p.precio }}
       <button (click)="carrito.agregar(p)">+ Agregar</button>
