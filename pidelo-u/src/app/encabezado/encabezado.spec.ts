@@ -7,7 +7,7 @@ describe('Encabezado', () => {
     localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [Encabezado],
-      providers: [provideRouter([])], // le damos un router vacío a la prueba
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 

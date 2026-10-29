@@ -1,5 +1,6 @@
-import { Service, computed, signal, effect } from '@angular/core';
+import { Service, computed, signal, effect, inject } from '@angular/core'; // 1) agregaste inject
 import { Producto } from '../modelos/producto';
+import { Ventas } from './ventas';                                         // 2) import nuevo
 
 @Service()
 export class Carrito {
@@ -15,6 +16,7 @@ export class Carrito {
   }
 
   private readonly items = signal<Producto[]>(Carrito.cargarGuardados());
+  private readonly ventas = inject(Ventas);                                // 3) propiedad nueva
 
   readonly lista = this.items.asReadonly();
   readonly cantidad = computed(() => this.items().length);
@@ -41,9 +43,10 @@ export class Carrito {
     this.items.set([]);
   }
 
-  comprar(): void {
+  comprar(): void {                                                        // 4) método cambiado
     if (this.items().length === 0) return;
+    this.ventas.registrar(this.items(), this.total()); // primero se guarda la venta
     alert(`¡Pedido realizado con éxito! 🎉 Total pagado: $${this.total()}`);
-    this.vaciar();
+    this.vaciar();                                     // y después se vacía
   }
 }

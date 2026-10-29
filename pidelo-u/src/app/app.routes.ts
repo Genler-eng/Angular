@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { Menu } from './menu/menu';
 import { Resumen } from './resumen/resumen';
 import { AgregarProducto } from './agregar-producto/agregar-producto';
+import { Historial } from './historial/historial';
 
 // Componente contenedor para la vista principal (Menú + Carrito)
 import { Component } from '@angular/core';
@@ -19,5 +20,6 @@ class InicioView {}
 export const routes: Routes = [
   { path: '', component: InicioView },
   { path: 'admin', component: AgregarProducto },
-  { path: '**', redirectTo: '' } // Si escriben una ruta mal, los devuelve al inicio
+  { path: 'historial', component: Historial },
+  { path: '**', redirectTo: '' }
 ];
