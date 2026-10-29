@@ -3,10 +3,14 @@
 <!-- Barra de búsqueda -->
 <input type="text" [(ngModel)]="filtro" placeholder="🔍 Buscar producto..." style="width: 100%; padding: 8px; margin-bottom: 12px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
 
-@for (p of productosFiltrados(); track p.id) {
-  <app-producto-card
-    [producto]="p"
-    [destacado]="p.id === 2"
-    (agregar)="agregarAlCarrito($event)"
-  />
-}
+<div class="grid">
+  @for (p of productosFiltrados(); track p.id) {
+    <app-producto-card
+      [producto]="p"
+      [destacado]="p.id === 2"
+      (agregar)="agregarAlCarrito($event)"
+    />
+  } @empty {
+    <p class="vacio"><em>No hay productos que coincidan con la búsqueda.</em></p>
+  }
+</div>

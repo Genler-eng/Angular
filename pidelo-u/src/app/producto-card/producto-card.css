@@ -1,8 +1,48 @@
+:host {
+  display: flex; /* para que todas las tarjetas de una fila midan lo mismo */
+}
+
+article {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e3e7ec;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
 article.destacado {
   background: #fffbe6;
+  border-color: #f39c12;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.precio {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #27ae60;
 }
 
 span {
+  position: absolute;
+  top: -10px;
+  right: 12px;
   background: #f39c12;
   color: white;
   padding: 2px 8px;
@@ -10,7 +50,9 @@ span {
   font-size: 0.8rem;
   font-weight: bold;
 }
+
 button {
+  margin-top: auto; /* empuja el botón al fondo de la tarjeta */
   background-color: #27ae60;
   color: white;
   border: none;

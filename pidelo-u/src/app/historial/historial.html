@@ -1,25 +1,34 @@
-<div class="panel">
+<section>
   <h2>📜 Historial de ventas</h2>
 
   @if (ventas.cantidad() === 0) {
     <p><em>Aún no hay ventas registradas.</em></p>
   } @else {
     <div class="resumen">
-      <p>Ventas: <strong>{{ ventas.cantidad() }}</strong></p>
-      <p>Total vendido: <strong>${{ ventas.totalVendido() }}</strong></p>
+      <div class="stat">
+        <span class="etiqueta">Ventas</span>
+        <strong>{{ ventas.cantidad() }}</strong>
+      </div>
+      <div class="stat">
+        <span class="etiqueta">Total vendido</span>
+        <strong>${{ ventas.totalVendido() }}</strong>
+      </div>
       <button class="borrar" (click)="borrar()">🗑️ Borrar historial</button>
     </div>
 
-    @for (v of ventas.lista(); track v.id) {
-      <article>
-        <h3>Venta #{{ v.id }} · {{ v.fecha | date: 'dd/MM/yyyy HH:mm' }}</h3>
-        <ul>
-          @for (p of v.productos; track $index) {
-            <li>{{ p.nombre }} - ${{ p.precio }}</li>
-          }
-        </ul>
-        <p>Total: <strong>${{ v.total }}</strong></p>
-      </article>
-    }
+    <div class="grid">
+      @for (v of ventas.lista(); track v.id) {
+        <article>
+          <h3>Venta #{{ v.id }}</h3>
+          <p class="fecha">{{ v.fecha | date: 'dd/MM/yyyy HH:mm' }}</p>
+          <ul>
+            @for (p of v.productos; track $index) {
+              <li>{{ p.nombre }} - ${{ p.precio }}</li>
+            }
+          </ul>
+          <p class="total"><span>Total</span><strong>${{ v.total }}</strong></p>
+        </article>
+      }
+    </div>
   }
-</div>
+</section>

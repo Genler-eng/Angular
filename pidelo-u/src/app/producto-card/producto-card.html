@@ -1,8 +1,8 @@
 <article [class.destacado]="destacado()">
-  <h3>{{ producto().nombre }}</h3>
-  <p>${{ producto().precio }}</p>
   @if (destacado()) {
     <span>Recomendado</span>
   }
+  <h3>{{ producto().nombre }}</h3>
+  <p class="precio">${{ producto().precio }}</p>
   <button (click)="pedir()">+ Agregar</button>
 </article>
