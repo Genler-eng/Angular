@@ -41,4 +41,13 @@ export class Catalogo {
     const id = actual.length > 0 ? Math.max(...actual.map(p => p.id)) + 1 : 1;
     this.productos.update((lista) => [...lista, { id, ...nuevo }]);
   }
+
+  editarProducto(id: number, cambios: Omit <Producto, 'id'>):void {
+    this.productos.update((lista) =>
+    lista.map((p) => (p.id === id? {...p, ...cambios} :p)) 
+    );
+  }
+  eliminarProducto(id:number):void{
+    this.productos.update((lista) => lista .filter((p) => p.id !==id));
+  }
 }
