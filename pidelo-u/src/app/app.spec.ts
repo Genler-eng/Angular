@@ -16,10 +16,10 @@ describe('App', () => {
     expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it('should render the header', async () => {
+    it('should render the header', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h2')?.textContent).toContain('Pídelo U');
+    expect(compiled.querySelector('h2')?.textContent).toContain('Cafetería');
   });
 });

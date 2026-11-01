@@ -1,17 +1,35 @@
-<div style="max-width: 500px; margin: 30px auto; padding: 25px; border: 1px solid #ddd; border-radius: 8px; background: #fdfdfd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-  <h2 style="margin-top: 0; color: #2c3e50;">⚙️ Administrar Menú: Agregar Producto</h2>
-  
-  <form (submit)="$event.preventDefault(); guardar()">
-    <div style="margin-bottom: 15px;">
-      <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre del producto:</label>
-      <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ej: Hamburguesa especial" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-    </div>
+<section>
+  <div class="formulario">
+    <h2>{{ editando() ? '✏️ Editar producto' : '⚙️ Agregar producto' }}</h2>
 
-    <div style="margin-bottom: 20px;">
-      <label style="display: block; margin-bottom: 5px; font-weight: bold;">Precio ($):</label>
-      <input type="number" [(ngModel)]="precio" name="precio" placeholder="0" style="width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;">
-    </div>
+    <form (ngSubmit)="guardar()">
+      <label for="nombre">Nombre del producto:</label>
+      <input id="nombre" type="text" [(ngModel)]="nombre" name="nombre" placeholder="Ej: Hamburguesa especial">
 
-    <button type="button" (click)="guardar()" style="background-color: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">💾 Guardar Producto en el Catálogo</button>
-  </form>
-</div>
+      <label for="precio">Precio ($):</label>
+      <input id="precio" type="number" [(ngModel)]="precio" name="precio" placeholder="0">
+
+      <div class="botones">
+        <button type="submit" class="guardar">
+          {{ editando() ? '💾 Guardar cambios' : '➕ Agregar al catálogo' }}
+        </button>
+        @if (editando()) {
+          <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
+        }
+      </div>
+    </form>
+  </div>
+
+  <h2>Productos del menú</h2>
+  <div class="grid">
+    @for (p of productos(); track p.id) {
+      <app-producto-admin
+        [producto]="p"
+        (editar)="editar($event)"
+        (eliminar)="eliminar($event)"
+      />
+    } @empty {
+      <p class="vacio"><em>No hay productos en el menú. Agrega el primero.</em></p>
+    }
+  </div>
+</section>

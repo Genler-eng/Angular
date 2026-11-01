@@ -1,0 +1,74 @@
+h2 {
+  color: #2c3e50;
+}
+
+.formulario {
+  max-width: 500px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e3e7ec;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.formulario h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.botones {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.guardar {
+  background-color: #2980b9;
+}
+
+.guardar:hover {
+  background-color: #21618c;
+}
+
+.cancelar {
+  background-color: #7f8c8d;
+}
+
+.cancelar:hover {
+  background-color: #626d6e;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.vacio {
+  grid-column: 1 / -1;
+  color: #7f8c8d;
+}

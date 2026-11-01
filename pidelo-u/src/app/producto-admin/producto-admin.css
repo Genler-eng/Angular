@@ -1,0 +1,60 @@
+:host {
+  display: flex; /* todas las tarjetas de una fila miden lo mismo */
+}
+
+article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e3e7ec;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.precio {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: auto; /* empuja los botones al fondo de la tarjeta */
+}
+
+button {
+  flex: 1;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.editar {
+  background-color: #2980b9;
+}
+
+.editar:hover {
+  background-color: #21618c;
+}
+
+.eliminar {
+  background-color: #e74c3c;
+}
+
+.eliminar:hover {
+  background-color: #c0392b;
+}

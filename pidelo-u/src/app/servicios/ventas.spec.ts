@@ -23,4 +23,16 @@ describe('Ventas', () => {
     expect(ventas.totalVendido()).toBe(5500);
     expect(ventas.lista()[0].id).toBe(2); // la más reciente va primero
   });
+
+    it('eliminar quita solo la venta con ese id', () => {
+    ventas.registrar([{ id: 1, nombre: 'Empanada', precio: 2500 }], 2500);
+    ventas.registrar([{ id: 2, nombre: 'Gaseosa', precio: 3000 }], 3000);
+
+    ventas.eliminar(1);
+
+    expect(ventas.cantidad()).toBe(1);
+    expect(ventas.lista()[0].id).toBe(2);
+    expect(ventas.totalVendido()).toBe(3000);
+  });
+  
 });

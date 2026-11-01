@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Ventas } from '../servicios/ventas';
+import { Venta } from '../modelos/venta';
 
 @Component({
   selector: 'app-historial',
@@ -14,6 +15,12 @@ export class Historial {
   protected borrar(): void {
     if (confirm('¿Borrar todo el historial de ventas? Esta acción no se puede deshacer.')) {
       this.ventas.limpiar();
+    }
+  }
+
+  protected eliminar(venta: Venta): void {
+    if (confirm(`¿Eliminar la venta #${venta.id}? Esta acción no se puede deshacer.`)) {
+      this.ventas.eliminar(venta.id);
     }
   }
 }

@@ -1,0 +1,8 @@
+<article>
+  <h3>{{ producto().nombre }}</h3>
+  <p class="precio">${{ producto().precio }}</p>
+  <div class="acciones">
+    <button class="editar" (click)="editar.emit(producto())">✏️ Editar</button>
+    <button class="eliminar" (click)="eliminar.emit(producto())">🗑️ Eliminar</button>
+  </div>
+</article>

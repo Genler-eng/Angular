@@ -40,4 +40,8 @@ export class Ventas {
     limpiar(): void {
     this.items.set([]);
   }
+
+    eliminar(id: number): void {
+    this.items.update((lista) => lista.filter((v) => v.id !== id));
+  }
 }
